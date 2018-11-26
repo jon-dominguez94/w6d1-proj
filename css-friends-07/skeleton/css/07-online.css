@@ -1,1 +1,8 @@
 /* PHASE 7: Online */
+.online {
+  position: absolute;
+  font-weight: bold;
+  color: white;
+  background: green;
+
+}
