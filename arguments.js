@@ -1,6 +1,6 @@
-function sum() {
+function sum(...args) {
   let sum = 0;
-  const args = Array.from(arguments);
+  // const args = Array.from(arguments);
   args.forEach(el => {
     sum += el;
   });
