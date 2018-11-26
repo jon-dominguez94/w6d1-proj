@@ -27,3 +27,23 @@ Function.prototype.myBind1 = function(ctx) {
 Function.prototype.myBind2 = function(ctx, ...bindArgs) {
   return (...callArgs) => this.apply(ctx, bindArgs.concat(callArgs));
 };
+
+function curriedSum(numArgs) {
+  const numbers = [];
+
+  function _curriedSum(num) {
+    numbers.push(num);
+    if (numbers.length === numArgs) {
+      let sum = 0;
+      numbers.forEach(num => {
+        sum += num;
+        // console.log(sum);
+      });
+      return sum;
+    } else {
+      return _curriedSum;
+    }
+  }
+
+  return _curriedSum;
+}
