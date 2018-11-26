@@ -47,3 +47,35 @@ function curriedSum(numArgs) {
 
   return _curriedSum;
 }
+
+
+Function.prototype.currySpread = function (numArgs) {
+  const args = [];
+
+  function _currySpread(arg) {
+    args.push(arg);
+    if (args.length === numArgs) {
+      // currySpread() ?
+    } else {
+      return _currySpread;
+    }
+  }
+
+  return _currySpread;
+};
+
+
+Function.prototype.curryArgs = function (numArgs) {
+  const args = [];
+
+  function _curryArgs(arg) {
+    args.push(arg);
+    if (args.length === numArgs) {
+      // curryArgs() ?
+    } else {
+      return _curryArgs;
+    }
+  }
+
+  return _curryArgs;
+};
