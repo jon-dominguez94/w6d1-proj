@@ -7,7 +7,6 @@ function sum1() {
   return sum;
 }
 
-
 function sum2(...args) {
   let sum = 0;
   args.forEach(el => {
@@ -15,3 +14,16 @@ function sum2(...args) {
   });
   return sum;
 }
+
+Function.prototype.myBind1 = function(ctx) {
+  const that = this;
+  const bindArgs = Array.from(arguments).slice(1);
+  return () => {
+    const callArgs = Array.from(arguments);
+    return that.apply(ctx, bindArgs.concat(callArgs));
+  };
+};
+
+// Function.prototype.myBind2 = function (ctx, ...bindArgs) {
+//   return (...callArgs) => this.apply(ctx, bindArgs.concat(callArgs));
+// };
