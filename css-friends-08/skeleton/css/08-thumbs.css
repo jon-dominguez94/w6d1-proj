@@ -1,5 +1,13 @@
 /* PHASE 8: Thumbs */
+
+.friends li {
+  display: inline;
+  float: left;
+  width: 30%
+}
+
 .thumb img{
-  width: 30%;
+  width: 100%;
   border: 1px solid #000;
+  display: inline;
 }
