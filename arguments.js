@@ -24,6 +24,6 @@ Function.prototype.myBind1 = function(ctx) {
   };
 };
 
-// Function.prototype.myBind2 = function (ctx, ...bindArgs) {
-//   return (...callArgs) => this.apply(ctx, bindArgs.concat(callArgs));
-// };
+Function.prototype.myBind2 = function(ctx, ...bindArgs) {
+  return (...callArgs) => this.apply(ctx, bindArgs.concat(callArgs));
+};
