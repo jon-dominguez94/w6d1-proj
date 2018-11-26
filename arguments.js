@@ -51,11 +51,12 @@ function curriedSum(numArgs) {
 
 Function.prototype.currySpread = function (numArgs) {
   const args = [];
+  const that = this;
 
   function _currySpread(arg) {
     args.push(arg);
     if (args.length === numArgs) {
-      // currySpread() ?
+      return that(...args);
     } else {
       return _currySpread;
     }
@@ -67,11 +68,12 @@ Function.prototype.currySpread = function (numArgs) {
 
 Function.prototype.curryArgs = function (numArgs) {
   const args = [];
+  const that = this;
 
   function _curryArgs(arg) {
     args.push(arg);
     if (args.length === numArgs) {
-      // curryArgs() ?
+      return that.apply(null, args);
     } else {
       return _curryArgs;
     }
