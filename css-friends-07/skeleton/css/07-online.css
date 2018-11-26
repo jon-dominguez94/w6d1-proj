@@ -10,3 +10,7 @@
   transform: rotate(-45deg) translate(-60px, -45px);
   border: 1px solid #000;
 }
+
+.profile-picture {
+  overflow: hidden;
+}
