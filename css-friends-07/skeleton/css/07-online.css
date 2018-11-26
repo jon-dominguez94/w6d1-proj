@@ -6,5 +6,7 @@
   background: green;
   width: 100%;
   padding: 5px;
-  
+  text-align: center;
+  transform: rotate(-45deg) translate(-60px, -45px);
+  border: 1px solid #000;
 }
