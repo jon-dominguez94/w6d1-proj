@@ -16,17 +16,17 @@ function Asteroid(options) {
 //   console.log("true");
 //   return true;
 // };
-// 
-// let opts = {
-//   pos: [250,250],
-//   vel: [0,0],
-//   radius: 5,
-//   color: "red"
-// };
-//
-// const m = new MovingObject(opts);
-// const a = new Asteroid(opts);
-// window.a = a;
+
+let opts = {
+  pos: [250,250],
+  vel: [0,0],
+  radius: 5,
+  color: "red"
+};
+
+const m = new MovingObject(opts);
+const a = new Asteroid(opts);
+window.a = a;
 // a.isBumpy();
 
 module.exports = Asteroid;

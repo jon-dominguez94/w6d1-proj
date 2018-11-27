@@ -93,7 +93,18 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("const Util = __webpack_require__(/*! ./util.js */ \"./src/util.js\");\nconst MovingObject = __webpack_require__(/*! ./moving_object.js */ \"./src/moving_object.js\");\n\nUtil.inherits(Asteroid, MovingObject);\n\nfunction Asteroid(options) {\n  this.COLOR = \"red\";\n  this.RADIUS = 7;\n  options.color = this.COLOR;\n  options.radius = this.RADIUS;\n  options.vel = Util.randomVec(50);\n  MovingObject.call(this, options);\n}\n//\n// Asteroid.prototype.isBumpy = function() {\n//   console.log(\"true\");\n//   return true;\n// };\n// \n// let opts = {\n//   pos: [250,250],\n//   vel: [0,0],\n//   radius: 5,\n//   color: \"red\"\n// };\n//\n// const m = new MovingObject(opts);\n// const a = new Asteroid(opts);\n// window.a = a;\n// a.isBumpy();\n\nmodule.exports = Asteroid;\n\n\n//# sourceURL=webpack:///./src/asteroid.js?");
+eval("const Util = __webpack_require__(/*! ./util.js */ \"./src/util.js\");\nconst MovingObject = __webpack_require__(/*! ./moving_object.js */ \"./src/moving_object.js\");\n\nUtil.inherits(Asteroid, MovingObject);\n\nfunction Asteroid(options) {\n  this.COLOR = \"red\";\n  this.RADIUS = 7;\n  options.color = this.COLOR;\n  options.radius = this.RADIUS;\n  options.vel = Util.randomVec(50);\n  MovingObject.call(this, options);\n}\n//\n// Asteroid.prototype.isBumpy = function() {\n//   console.log(\"true\");\n//   return true;\n// };\n\nlet opts = {\n  pos: [250,250],\n  vel: [0,0],\n  radius: 5,\n  color: \"red\"\n};\n\nconst m = new MovingObject(opts);\nconst a = new Asteroid(opts);\nwindow.a = a;\n// a.isBumpy();\n\nmodule.exports = Asteroid;\n\n\n//# sourceURL=webpack:///./src/asteroid.js?");
+
+/***/ }),
+
+/***/ "./src/game.js":
+/*!*********************!*\
+  !*** ./src/game.js ***!
+  \*********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("const Asteroid = __webpack_require__(/*! ./asteroid.js */ \"./src/asteroid.js\");\n\nfunction Game() {\n  this.addAsteroids();\n}\n\nGame.DIM_X = 500;\nGame.DIM_Y = 500;\nGame.NUM_ASTEROIDS = 10;\n\nGame.prototype.addAsteroids = function() {\n  const asteroids = [];\n  while(asteroids.length < Game.NUM_ASTEROIDS){\n    const pos = [this.randomPos(Game.DIM_X), this.randomPos(Game.DIM_Y)];\n    const asteroid = new Asteroid({pos: pos});\n    asteroids.push(asteroid);\n  }\n  this.asteroids = asteroids;\n};\n\nGame.prototype.randomPos = function(max) {\n  return Math.floor(Math.random() * Math.floor(max));\n};\n\nGame.prototype.draw = function(ctx) {\n  ctx.clearRect(0,0, 500, 500);\n};\n\nmodule.exports = Game;\n\n\n//# sourceURL=webpack:///./src/game.js?");
 
 /***/ }),
 
@@ -104,7 +115,7 @@ eval("const Util = __webpack_require__(/*! ./util.js */ \"./src/util.js\");\ncon
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("console.log(\"Webpack is working!\");\nconst MovingObject = __webpack_require__(/*! ./moving_object.js */ \"./src/moving_object.js\");\nconst Asteroid = __webpack_require__(/*! ./asteroid.js */ \"./src/asteroid.js\");\n\nwindow.MovingObject = MovingObject;\n\ndocument.addEventListener(\"DOMContentLoaded\", function(event) {\n  const canvas = document.getElementById(\"game-canvas\");\n  const ctx = canvas.getContext(\"2d\");\n\n  window.canvas = canvas;\n  window.ctx = ctx;\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("console.log(\"Webpack is working!\");\nconst MovingObject = __webpack_require__(/*! ./moving_object.js */ \"./src/moving_object.js\");\nconst Asteroid = __webpack_require__(/*! ./asteroid.js */ \"./src/asteroid.js\");\nconst Game = __webpack_require__(/*! ./game.js */ \"./src/game.js\");\n\nwindow.MovingObject = MovingObject;\nwindow.Game = Game;\n\ndocument.addEventListener(\"DOMContentLoaded\", function(event) {\n  const canvas = document.getElementById(\"game-canvas\");\n  const ctx = canvas.getContext(\"2d\");\n\n  window.canvas = canvas;\n  window.ctx = ctx;\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
