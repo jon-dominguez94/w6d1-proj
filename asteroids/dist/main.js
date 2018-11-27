@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("const Util = __webpack_require__(/*! ./util.js */ \"./src/util.js\");\nconst MovingObject = __webpack_require__(/*! ./moving_object.js */ \"./src/moving_object.js\");\n\nUtil.inherits(Asteroid, MovingObject);\n\nfunction Asteroid(options) {\n  this.COLOR = \"red\";\n  this.RADIUS = 7;\n  MovingObject.call(this, options);\n}\n//\n// Asteroid.prototype.isBumpy = function() {\n//   console.log(\"true\");\n//   return true;\n// };\n//\n// let opts = {\n//   pos: [0,0],\n//   vel: [0,0],\n//   radius: 5,\n//   color: \"red\"\n// };\n//\n// const m = new MovingObject(opts);\n// const a = new Asteroid(opts);\n// window.a = a;\n// a.isBumpy();\n\nmodule.exports = Asteroid;\n\n\n//# sourceURL=webpack:///./src/asteroid.js?");
+eval("const Util = __webpack_require__(/*! ./util.js */ \"./src/util.js\");\nconst MovingObject = __webpack_require__(/*! ./moving_object.js */ \"./src/moving_object.js\");\n\nUtil.inherits(Asteroid, MovingObject);\n\nfunction Asteroid(options) {\n  this.COLOR = \"red\";\n  this.RADIUS = 7;\n  options.color = this.COLOR;\n  options.radius = this.RADIUS;\n  options.vel = Util.randomVec(50);\n  MovingObject.call(this, options);\n}\n//\n// Asteroid.prototype.isBumpy = function() {\n//   console.log(\"true\");\n//   return true;\n// };\n// \n// let opts = {\n//   pos: [250,250],\n//   vel: [0,0],\n//   radius: 5,\n//   color: \"red\"\n// };\n//\n// const m = new MovingObject(opts);\n// const a = new Asteroid(opts);\n// window.a = a;\n// a.isBumpy();\n\nmodule.exports = Asteroid;\n\n\n//# sourceURL=webpack:///./src/asteroid.js?");
 
 /***/ }),
 
