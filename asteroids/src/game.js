@@ -29,4 +29,10 @@ Game.prototype.draw = function(ctx) {
   });
 };
 
+Game.prototype.moveObjects = function() {
+  this.asteroids.forEach(el => {
+    el.move();
+  });
+};
+
 module.exports = Game;
