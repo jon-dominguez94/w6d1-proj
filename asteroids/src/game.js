@@ -23,7 +23,10 @@ Game.prototype.randomPos = function(max) {
 };
 
 Game.prototype.draw = function(ctx) {
-  ctx.clearRect(0,0, 500, 500);
+  ctx.clearRect(0,0, Game.DIM_X, Game.DIM_Y);
+  this.asteroids.forEach(el => {
+    el.draw(ctx);
+  });
 };
 
 module.exports = Game;
